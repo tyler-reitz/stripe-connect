@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Stripe Connect</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main>
+    <header>
+    
+      <div class="stripes">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <template id="cube-template">
+        <div class="cube">
+          <div class="shadow"></div>
+          <div class="sides">
+            <div class="back"></div>
+            <div class="top"></div>
+            <div class="left"></div>
+            <div class="front"></div>
+            <div class="right"></div>
+            <div class="bottom"></div>
+          </div>
+        </div>
+      </template>
+
+      <div id="header-hero">
+        <span class="hero-illustration">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 162">
+            <defs>
+              <linearGradient id="header-illustration3-a" x1="0%" y1="100%" y2="0%">
+                <stop stop-color="#B4F3B6" offset="0%"></stop>
+                <stop stop-color="#B4F3B6" offset="30%"></stop>
+                <stop stop-color="#8AE5E4" offset="70%"></stop>
+                <stop stop-color="#85E3E9" offset="100%"></stop>
+              </linearGradient>
+              <linearGradient id="header-illustration3-b" x1="0%" y1="0%" y2="100%">
+                <stop stop-color="#ADEAE5" offset="0%"></stop>
+                <stop stop-color="#84E1D9" offset="50%"></stop>
+                <stop stop-color="#DCF1ED" offset="100%"></stop>
+              </linearGradient>
+              <linearGradient id="header-illustration3-c" x1="50%" x2="50%" y1="0%" y2="100%">
+                <stop stop-color="#90CCDD" offset="0%"></stop>
+                <stop stop-color="#3196C4" offset="100%"></stop>
+              </linearGradient>
+              <linearGradient id="header-illustration3-d" x1="50%" x2="50%" y1="0%" y2="100%">
+                <stop stop-color="#B5E8E9" offset="0%"></stop>
+                <stop stop-color="#9EE5E9" offset="80%"></stop>
+                <stop stop-color="#DCF1ED" offset="100%"></stop>
+              </linearGradient>
+              <linearGradient id="header-illustration3-e" x1="0%" y1="0%" y2="0%">
+                <stop stop-color="#239ADD" offset="0%"></stop>
+                <stop stop-color="#54C3E4" offset="100%"></stop>
+              </linearGradient>
+            </defs>
+            <g fill="none" fill-rule="evenodd">
+              <rect width="288" height="162" fill="url(#header-illustration3-a)" rx="4"></rect>
+              <path fill="#009B8B" d="M134.48 56.86A2 2 0 0 1 136 56h11v61H99c-.55 0-.76-.39-.48-.86l35.96-59.28z"
+                opacity=".15"></path>
+              <polygon fill="url(#header-illustration3-b)" points="151 45 190 108 112 108"></polygon>
+              <polygon fill="url(#header-illustration3-c)" points="151 45 112 108 117 108 151 53.077"></polygon>
+              <polygon fill="url(#header-illustration3-d)" points="190 108 151 45 151 53.077 185 108"></polygon>
+              <rect width="78" height="9" x="112" y="108" fill="url(#header-illustration3-e)" rx="1"></rect>
+            </g>
+          </svg>
+        </span>
+        <span class="hero-illustration">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 162">
+            <defs>
+              <linearGradient id="header-illustration2-a" x1="0%" y1="100%" y2="0%">
+                <stop stop-color="#57C6E4" offset="0%"></stop>
+                <stop stop-color="#EAD6F7" offset="100%"></stop>
+              </linearGradient>
+              <linearGradient id="header-illustration2-b" x1="100%" x2="0%" y1="0%" y2="100%">
+                <stop stop-color="#E7B8EB" offset="0%"></stop>
+                <stop stop-color="#C670CC" offset="100%"></stop>
+              </linearGradient>
+              <linearGradient id="header-illustration2-c" x1="0%" y1="0%" y2="100%">
+                <stop stop-color="#9BEFA0" offset="0%"></stop>
+                <stop stop-color="#C1F2C1" offset="50%"></stop>
+                <stop stop-color="#DCF5D8" offset="70%"></stop>
+                <stop stop-color="#DFF5D9" offset="100%"></stop>
+              </linearGradient>
+              <linearGradient id="header-illustration2-d" x1="50%" x2="50%" y1=".83%" y2="100%">
+                <stop stop-color="#E9A3E5" offset="0%"></stop>
+                <stop stop-color="#C472C0" offset="20%"></stop>
+                <stop stop-color="#8D278E" offset="100%"></stop>
+              </linearGradient>
+              <linearGradient id="header-illustration2-e" x1="50%" x2="50%" y1=".35%" y2="100%">
+                <stop stop-color="#3BBE56" offset="0%"></stop>
+                <stop stop-color="#41C15D" offset="30%"></stop>
+                <stop stop-color="#C5EBC9" offset="70%"></stop>
+                <stop stop-color="#C8ECC8" offset="100%"></stop>
+              </linearGradient>
+              <linearGradient id="header-illustration2-f" x1="100%" x2="0%" y1="50%" y2="50%">
+                <stop stop-color="#C4F7CA" offset="0%"></stop>
+                <stop stop-color="#85EA95" offset="100%"></stop>
+              </linearGradient>
+              <linearGradient id="header-illustration2-g" x1="100%" x2="0%" y1="50%" y2="50%">
+                <stop stop-color="#E9B9E1" offset="0%"></stop>
+                <stop stop-color="#D171CD" offset="100%"></stop>
+              </linearGradient>
+              <linearGradient id="header-illustration2-h" x1="100%" x2="0%" y1="0%" y2="100%">
+                <stop stop-color="#FFFFFF" offset="0%"></stop>
+                <stop stop-color="#FAF7EF" offset="40%"></stop>
+                <stop stop-color="#DEECED" offset="60%"></stop>
+                <stop stop-color="#ACD9E6" offset="100%"></stop>
+              </linearGradient>
+              <linearGradient id="header-illustration2-i" x1="50%" x2="50%" y1="0%" y2="100%">
+                <stop stop-color="#3A2B52" offset="0%"></stop>
+                <stop stop-color="#4C356D" offset="20%"></stop>
+                <stop stop-color="#53347A" offset="100%"></stop>
+              </linearGradient>
+              <linearGradient id="header-illustration2-j" x1="50%" x2="50%" y1="0%" y2="100%">
+                <stop stop-color="#4C3366" offset="0%"></stop>
+                <stop stop-color="#53366F" offset="10%"></stop>
+                <stop stop-color="#8551A0" offset="20%"></stop>
+                <stop stop-color="#7C479C" offset="60%"></stop>
+                <stop stop-color="#C67FDE" offset="80%"></stop>
+                <stop stop-color="#AC5FCC" offset="100%"></stop>
+              </linearGradient>
+            </defs>
+            <g fill="none" fill-rule="evenodd">
+              <rect width="288" height="162" fill="url(#header-illustration2-a)" rx="4"></rect>
+              <polygon fill="#2699CD" fill-opacity=".3" points="119 51.545 74 80 87 80 87 115 119 115"></polygon>
+              <polygon fill="url(#header-illustration2-b)" points="142 77 82 77 82 73.182 142 35"></polygon>
+              <polygon fill="url(#header-illustration2-c)" points="142 35 202 73.182 202 77 142 77"></polygon>
+              <polygon fill="url(#header-illustration2-d)" points="82 77 84.462 77 142 40.385 142 35 82 73.182"></polygon>
+              <path fill="url(#header-illustration2-e)" d="M202 77h-2.46L142 40.38V35l60 38.18V77z"></path>
+              <rect width="32" height="42" x="95" y="73" fill="url(#header-illustration2-f)"></rect>
+              <rect width="62" height="42" x="127" y="73" fill="url(#header-illustration2-g)"></rect>
+              <rect width="13" height="4" x="82" y="73" fill="#411A5F" fill-opacity=".5"></rect>
+              <rect width="13" height="4" x="189" y="73" fill="#2BB752" fill-opacity=".5"></rect>
+              <rect width="94" height="4" x="95" y="111" fill="#43458B" fill-opacity=".15"></rect>
+              <rect width="94" height="4" x="95" y="73" fill="#43458B" fill-opacity=".15"></rect>
+              <path fill="#8CABE3" fill-opacity=".5" d="M219.13 80L241 115h4V80h-25.88z"></path>
+              <circle cx="242" cy="74" r="9" fill="#8CABE3" fill-opacity=".5"></circle>
+              <path fill="#F9D2EE" d="M223 79.8l22 35.2 22-35.2V75h-44v4.8z"></path>
+              <circle cx="245" cy="71" r="9" fill="url(#header-illustration2-h)"></circle>
+              <rect width="44" height="5" x="223" y="75" fill="#D88CD9" opacity=".5"></rect>
+              <path fill="url(#header-illustration2-i)" d="M223 79.8l22 35.2v-6.4L224 75h-1v4.8z"></path>
+              <path fill="url(#header-illustration2-j)" d="M267 75h-1l-21 33.6v6.4l22-35.2V75z"></path>
+            </g>
+          </svg>
+        </span>
+        <span class="hero-illustration">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 162">
+            <defs>
+              <linearGradient id="header-illustration1-a" x1="0%" y1="100%" y2="0%">
+                <stop stop-color="#FFD77F" offset="0%"></stop>
+                <stop stop-color="#FFF3A3" offset="100%"></stop>
+              </linearGradient>
+              <linearGradient id="header-illustration1-b" x1="50%" x2="50%" y1="0%" y2="100%">
+                <stop stop-color="#FF985C" offset="0%"></stop>
+                <stop stop-color="#FFBB7F" offset="100%"></stop>
+              </linearGradient>
+              <linearGradient id="header-illustration1-c" x1="50%" x2="50%" y1="0%" y2="100%">
+                <stop stop-color="#FF956B" offset="0%"></stop>
+                <stop stop-color="#FF6542" offset="100%"></stop>
+              </linearGradient>
+              <linearGradient id="header-illustration1-d" x1="50%" x2="50%" y1="0%" y2="100%">
+                <stop stop-color="#FFFFFF" offset="0%"></stop>
+                <stop stop-color="#FFFFFF" offset="30%"></stop>
+                <stop stop-color="#F9F6EF" offset="100%"></stop>
+              </linearGradient>
+            </defs>
+            <g fill="none" fill-rule="evenodd">
+              <rect width="288" height="162" fill="url(#header-illustration1-a)" rx="4"></rect>
+              <path fill="url(#header-illustration1-b)" fill-rule="nonzero" d="M3 122.4c4.34-3.45 8.72-7.18 13.12-11.18l26.78 29.75a296.2 296.2 0 0 1-15.26 12.96L3 122.4zm-3 2.65l24.49 31.34a243.3 243.3 0 0 1-7.62 5.61H3.99A4 4 0 0 1 0 158v-32.95zM123.66 0l17.1 9.1a297.56 297.56 0 0 1-8.61 17.14L97.17 6.85c1.25-2.32 2.45-4.6 3.58-6.85h22.9zm8.52 0h12.53c-.73 1.78-1.5 3.6-2.3 5.44L132.17 0zM95.25 10.36l34.97 19.39a404.04 404.04 0 0 1-10.2 17.3L86.1 25.84a364.78 364.78 0 0 0 9.15-15.5zM83.97 29.23l33.92 21.2a471.95 471.95 0 0 1-10.68 16.06L74.44 43.54c3.33-4.8 6.51-9.58 9.53-14.3zM72.15 46.82l32.77 22.94A494.14 494.14 0 0 1 93.25 85.6L61.3 61.52c3.74-4.86 7.37-9.78 10.85-14.7zm-13.3 17.86L90.8 88.76a480.63 480.63 0 0 1-11.75 14.45L48.41 77.5a434.33 434.33 0 0 0 10.44-12.82zM45.8 80.54l30.65 25.72a434.9 434.9 0 0 1-13.61 15.1l-28.79-27.8c3.93-4.15 7.85-8.5 11.75-13.02zm-14.5 15.92l28.78 27.8c-4.73 4.9-9.48 9.57-14.25 14l-26.78-29.75c4.07-3.8 8.16-7.82 12.24-12.05z"></path>
+              <path fill="url(#header-illustration1-c)" fill-rule="nonzero" d="M256.87 6.15l19.49 4.5a80 80 0 0 1-3.06 10.43l-18.56-7.5a60.17 60.17 0 0 0 2.13-7.43zm.39-1.96c.25-1.4.45-2.8.6-4.19h20.1a78.46 78.46 0 0 1-1.2 8.69l-19.5-4.5zm-3.22 11.27l18.54 7.49a82.72 82.72 0 0 1-4.37 9.28l-17.65-9.38c1.34-2.44 2.5-4.9 3.48-7.4zm-4.48 9.12l17.67 9.4a90.24 90.24 0 0 1-5.43 8.26l-16.36-11.46c1.51-2.04 2.89-4.1 4.12-6.2zm-5.34 7.8l16.38 11.46c-2.14 2.78-4.47 5.5-7 8.17l-14.37-13.87c1.8-1.9 3.46-3.82 4.99-5.77zm-6.38 7.2l14.36 13.87c-2.27 2.3-4.69 4.55-7.26 6.76l-13.36-14.83a99.28 99.28 0 0 0 6.26-5.8zm-7.8 7.08l13.37 14.84a140.4 140.4 0 0 1-7.76 6l-12.02-15.94a120.6 120.6 0 0 0 6.41-4.9zM222 52.7l12.03 15.96c-2.58 1.8-5.28 3.58-8.1 5.31l-10.59-16.94c2.32-1.42 4.54-2.87 6.66-4.33zm-8.37 5.36l10.59 16.95a191.8 191.8 0 0 1-8.5 4.82l-9.4-17.66c2.54-1.35 4.98-2.72 7.3-4.1zm-9.07 5.04l9.39 17.66c-2.68 1.4-5.44 2.76-8.3 4.1l-9.08-17.83.21-.1a207 207 0 0 0 7.78-3.83zm-9.8 4.78l9.08 17.83a303.83 303.83 0 0 0-7.76 3.8l-9.4-17.66c2.63-1.34 5.32-2.66 8.08-3.97zm-9.85 4.88l9.39 17.66a267.08 267.08 0 0 0-7.76 4.17l-10.3-17.15c2.8-1.58 5.7-3.14 8.67-4.68zm-10.41 5.67l10.3 17.14c-2.5 1.43-4.92 2.86-7.26 4.31l-11.19-16.58c2.64-1.65 5.35-3.27 8.15-4.87zm-9.84 5.93l11.18 16.58c-2.44 1.54-4.8 3.1-7.08 4.68l-12.04-15.98c2.56-1.78 5.2-3.54 7.94-5.28zm-9.57 6.43l12.03 15.97a176.52 176.52 0 0 0-6.67 4.96l-12.86-15.32c2.4-1.9 4.9-3.76 7.5-5.6zM146 97.66l12.86 15.31a152.9 152.9 0 0 0-6.34 5.35l-13.9-14.39c2.36-2.12 4.82-4.21 7.38-6.27zm-8.85 7.62l13.89 14.39a132.6 132.6 0 0 0-5.88 5.74l-14.87-13.39c2.17-2.27 4.46-4.52 6.86-6.74zm-8.23 8.2l14.86 13.38a115.26 115.26 0 0 0-5.71 6.62l-15.76-12.31c2.07-2.6 4.27-5.16 6.61-7.69zm-7.85 9.26l15.76 12.31a101.65 101.65 0 0 0-4.66 6.59l-16.58-11.19c1.7-2.6 3.53-5.17 5.48-7.71zm-6.56 9.4l16.59 11.19a92.7 92.7 0 0 0-4.03 7.18l-17.34-10.01a112.13 112.13 0 0 1 4.78-8.36zm-5.68 10.15l17.36 10.02a85.5 85.5 0 0 0-3.21 7.71l-18.2-8.48c1.19-3.1 2.53-6.19 4.05-9.25zm-4.74 11.13l18.23 8.5-.02.08h-20.87c.76-2.88 1.64-5.74 2.66-8.58z"></path>
+              <path fill="url(#header-illustration1-c)" d="M176.42 162h-9.58a102.5 102.5 0 0 1 5.18-5.43l4.4 5.43zm13.75 0h-11.18l-5.52-6.82c2.42-2.27 4.98-4.45 7.68-6.54l9.02 13.36zm6.54 0h-4.13l-9.83-14.58a112.12 112.12 0 0 1 7.96-5.42l10 17.33c-1.36.87-2.7 1.76-4 2.67zM288 139.41c-1.8 0-3.56.01-5.31.04l-.7-19.99c1.98-.03 3.98-.05 6.01-.05v20zm-8.01-19.9l.7 19.98c-3 .07-5.93.18-8.8.35l-1.74-19.93c3.21-.2 6.5-.33 9.84-.4zm-11.84.52l1.74 19.93c-2.86.18-5.67.4-8.41.69l-2.79-19.82c3.1-.32 6.24-.59 9.46-.8zm-11.44 1.02l2.78 19.8c-2.87.32-5.68.69-8.41 1.1l-3.82-19.63c3.08-.48 6.23-.9 9.45-1.27zm-11.43 1.59l3.82 19.62c-2.8.46-5.52.97-8.17 1.53l-4.84-19.4c3-.65 6.06-1.23 9.2-1.75zm-11.15 2.18l4.84 19.4c-2.76.62-5.44 1.3-8.04 2.03l-6.18-19.02c3.04-.88 6.17-1.68 9.38-2.41zm-11.3 2.97l6.18 19.02c-2.69.8-5.29 1.66-7.8 2.58l-7.5-18.54c2.95-1.1 6-2.12 9.12-3.06zm-10.99 3.76l7.5 18.54a115.26 115.26 0 0 0-8.04 3.45l-8.77-17.98c3-1.43 6.1-2.76 9.31-4zm-11.11 4.89l8.77 17.97a101.65 101.65 0 0 0-7.08 3.88l-10-17.33c2.67-1.59 5.44-3.1 8.31-4.52z"></path>
+              <path fill="#003400" d="M77.57 38.97L102 56v6.83L74.44 43.54c1.06-1.52 2.1-3.05 3.13-4.57zM102 67.72v6.13l-.07.1L69.1 51.07c1.03-1.42 2.05-2.83 3.05-4.25L102 67.72z"></path>
+              <circle cx="97" cy="46" r="9" fill="#FF7F43"></circle>
+              <circle cx="96" cy="43" r="9" fill="url(#header-illustration1-d)"></circle>
+              <polygon fill="#41C344" points="69 33 102 56 102 74 69 51" opacity=".8"></polygon>
+              <polygon fill="#95EF9A" points="102 72.294 103 73 103 55 69 31 69 33 102 56"></polygon>
+              <polygon fill="#C1004C" points="247 21 264 31 264 39 247 29" opacity=".6"></polygon>
+              <path fill="#FFFFFF" d="M252.03 25.96a5 5 0 1 0 8.56 5.03l-8.56-5.03zm1.34-1.21a5 5 0 0 1 7.62 4.49l-7.62-4.5z"></path>
+            </g>
+          </svg>
+        </span>
+        <div class="play-video">
+          <button class="common-Button acitve">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 14">
+              <path d="M0 1v12.02a.99.99 0 0 0 1.49.84l10.03-5.98c.64-.4.64-1.33 0-1.73L1.49.12C.79-.23 0 .22 0 1z"></path>
+            </svg>
+            Play Video
+          </button>
+        </div>
+      </div>
+
+    </header>
+  </main>
+
+  <script>
+    const template = document.getElementById('cube-template')
+    const fragment = document.importNode(template.content, true)
+    return fragment
+
+    const getDistance = (state, rotate) => {
+      ['x', 'y'].reduce((object, axis) => {
+        object[axis] = Math.abs(state[axis] + rotate[axis])
+        return object
+      }, {})
+    }
+
+    const getRotation = (state, size, rotate) => {
+      const axis = rotate.x ? 'Z' : 'Y'
+      const direction = rotate.x > 0 ? -1 : 1
+
+      return `
+        rotateX(${state.x + rotate.x}deg);
+        rotate${axis}(${direction * (state.y + rotate.y)}deg)
+        translateZ(${size / 2}px)
+      `
+    }
+
+    const interpolate = (a, b, i) => a * (1 - i) + b * i
+
+    const getShading = (tint, rotate, distance) => {
+      const darken = ['x', 'y'].reduce((object, axis) => {
+        const delta = distance[axis]
+        const ratio = delta / 180
+        object[axis] = delta > 180 ? Math.abs(2 - ratio) : ratio
+        return object
+      }, {})
+    }
+
+    if (rotate.x)
+      darkeny.y = 0;
+    else {
+      const {x} = distance
+      if (x > 90 && x < 270)
+        directions.forEach(axis => darken[axis] = 1 - darken[axis])
+    }
+
+    const alpha = (darken.x + darken.y) / 2
+    const blend = (value, index) => {
+      Math.round(interpolate(value, tint.shading[index], alpha))
+    }
+
+    const [r,g,a] = tint.color.map(blend)
+    return `rgb(${${r}, ${g}, ${b})`
+  </script>
+</body>
+</html>

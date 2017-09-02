@@ -1,0 +1,12 @@
+button {
+  border: none;
+}
+.common-Button {
+  height: 40px;
+  line-height: 40px;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .025em;
+  text-decoration: none;
+}

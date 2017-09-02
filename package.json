@@ -1,0 +1,23 @@
+{
+  "name": "stripe-connect",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run serve && npm run build",
+    "build:css": "postcss styles/index.css -o style.css -w"
+  },
+  "keywords": [],
+  "author": "Tyler Reitz <tdreitz@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "normalizecss": "^3.0.0"
+  },
+  "devDependencies": {
+    "postcss-cli": "^4.1.0",
+    "postcss-easy-import": "^2.1.0",
+    "postcss-nested": "^2.1.2",
+    "postcss-nested-ancestors": "^1.0.0"
+  }
+}
